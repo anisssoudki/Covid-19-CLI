@@ -1,0 +1,12 @@
+1. building a cli
+2. welcome user, prompt to select a list, or tell them they can exit if they chose to do so
+3. if they select the list print a list of countries
+	1. USA 
+	2. canada 
+	...
+4. select by name ...
+5. if they select exit, goodbye and exit program
+
+cli class - controller 
+api class - external data, consume API instantiate objects
+country class - objects are created and stored
