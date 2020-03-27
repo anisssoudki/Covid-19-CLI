@@ -21,4 +21,9 @@ class Country
 			 country.country.capitalize == name
 		end
 		end
+	def self.find_by_city(name)
+		self.all.select do |country|
+		 country.city.capitalize == name
+	end
+	end
 end
