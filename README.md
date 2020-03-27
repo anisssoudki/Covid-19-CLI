@@ -8,6 +8,9 @@ after cloning make sure you require "unirest"
 
 updated application with a new attribute, because the API was updated.
 
+
+update the application to include a find by city method so now user can enter in a city name 
+and it'll show case every hit from the API
 The MIT License (MIT)
 
 Copyright (c) 2020 TODO: Aniss Soudki/Marrouch
