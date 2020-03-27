@@ -42,7 +42,7 @@ class Covid19Cli::CLI
     	def user_pick
     			loop do 
     	puts " "
-    	puts "Which country would you like details about: "
+    	puts "Which country or city would you like details about: "
     	input = gets.chomp.strip.capitalize
     		if input == "Exit"
     			break
@@ -50,7 +50,8 @@ class Covid19Cli::CLI
     			country_list
     			
     		else	
-    			country_selection(input)
+    			country_selection(input) && city_selection(input)
+
     			end
 			end
 			goodbye(@user)
@@ -71,7 +72,18 @@ class Covid19Cli::CLI
 		end
 		
 	end
-
+	def city_selection(name)
+			c = Country.find_by_city(name)
+			c.each do |c|
+				puts  "Name of country: #{c.country}"
+	puts  "province or state: #{c.province}"
+	puts  "city: #{c.city}"
+	puts  "lastUpdated:		#{c.lastUpdated}"
+	puts  "Number of confirmed cases:  		#{c.confirmed}"
+	puts  "Number of dead people by covid 19: 			#{c.death}"
+	puts  "Number of recovered people: 		#{c.recovered}"
+			end
+	end	
     def invalid_entry
   		puts "Invalid entry, try again"
 		menu
