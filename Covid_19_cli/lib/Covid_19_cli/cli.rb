@@ -2,48 +2,48 @@
 class Covid19Cli::CLI
 	attr_accessor :user
 	def user_name
-		puts "Please enter your name"
-		print"> "
-		@user = gets.chomp.strip.upcase
+	  puts "Please enter your name"
+	  print"> "
+	  @user = gets.chomp.strip.upcase
 	end
-		def slow_motion(string)
-			string.each_char {|c| print c ; sleep 0.02 }
-		end
+	def slow_motion(string)
+	  string.each_char {|c| print c ; sleep 0.02 }
+	end
 	def call
-		user_name
-	 	slow_motion("Welcome ")
-	  	slow_motion(@user)
-	  	puts " "
-	  	slow_motion"Enter =>'list' to see country list"
-	  	puts " "
-	  	slow_motion"To exit the application, enter =>'exit'.".upcase
-	  	puts " "
-	  	Api.get_data
-	  	menu
+	   user_name
+	   slow_motion("Welcome ")
+	   slow_motion(@user)
+	   puts " "
+	   slow_motion"Enter =>'list' to see country list"
+	   puts " "
+	   slow_motion"To exit the application, enter =>'exit'.".upcase
+	   puts " "
+	   Api.get_data
+	   menu
 	end
 	def menu
-		print "> "
-		input = gets.strip.downcase
-		if input == "list"
-			country_list 
-	    elsif input == "exit"
-			goodbye(@user)
-			exit
-	  	else
-		 	invalid_entry
-	    end
-    end
+	   print "> "
+	   input = gets.strip.downcase
+	   if input == "list"
+		country_list 
+	   elsif input == "exit"
+		goodbye(@user)
+		exit
+	   else
+		 invalid_entry
+	   end
+   	 end
     def country_list
-    	Country.all.each_with_index do |country, index|
+    		Country.all.each_with_index do |country, index|
     		#calls out a list of all countries and provinces with their
     		puts "#{index + 1}. country: #{country.country} province: #{country.province} city: #{country.city}"
-    	end
+    		end
     	user_pick 
     end
     	def user_pick
     			loop do 
     	puts " "
-    	puts "Which country or city would you like details about: "
+    	puts "Which country, state or city would you like details about: "
     	input = gets.chomp.strip.capitalize
     		if input == "Exit"
     			break
@@ -56,7 +56,6 @@ class Covid19Cli::CLI
 			goodbye(@user)
 		end
  	def country_selection(name)
-		#go over array and find the country selected
 		c = Country.find_by_country(name)
 		c.each do |c| 
 		puts  "Name of country:                    #{c.country}"
