@@ -12,7 +12,7 @@ updated application with a new attribute, because the API was updated.
 update the application to include a find by city method so now user can enter in a city name 
 and it'll show case every hit from the API
 
-API got updated april 1st 2020, adjusted file keywords, gem should be working again.(4/01/2020)
+API got updated april 1st 2020, adjusted file keywords, gem should be working again update a method to sort by state.(4/01/2020)
 
 The MIT License (MIT)
 
