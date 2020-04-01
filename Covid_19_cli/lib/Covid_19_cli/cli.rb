@@ -50,7 +50,7 @@ class Covid19Cli::CLI
     		elsif input == "List"
     			country_list
     		else	
-    			country_selection(input) && city_selection(input)
+    			country_selection(input) && city_selection(input) && state_selection(input)
     			end
 			end
 			goodbye(@user)
@@ -71,6 +71,19 @@ class Covid19Cli::CLI
 	end
 	def city_selection(name)
 			c = Country.find_by_city(name)
+			c.each do |c|
+			puts  "Name of country:                    #{c.country}"
+			puts  "province or state:                  #{c.province}"
+			puts  "city:                               #{c.city}"
+			puts  "lastUpdated:	                    #{c.lastUpdate}"
+			puts  "Number of confirmed cases:          #{c.confirmed}"
+			puts  "Number of dead people by covid 19:  #{c.deaths}"
+			puts  "Number of recovered people: 	       #{c.recovered}"
+			puts  " "
+			end
+	end	
+	def state_selection(name)
+			c = Country.find_by_state(name)
 			c.each do |c|
 			puts  "Name of country:                    #{c.country}"
 			puts  "province or state:                  #{c.province}"
