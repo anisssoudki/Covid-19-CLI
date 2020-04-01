@@ -28,6 +28,7 @@ class Covid19Cli::CLI
 			country_list 
 	    elsif input == "exit"
 			goodbye(@user)
+			exit
 	  	else
 		 	invalid_entry
 	    end
@@ -48,10 +49,8 @@ class Covid19Cli::CLI
     			break
     		elsif input == "List"
     			country_list
-    			
     		else	
     			country_selection(input) && city_selection(input)
-
     			end
 			end
 			goodbye(@user)
@@ -59,29 +58,28 @@ class Covid19Cli::CLI
  	def country_selection(name)
 		#go over array and find the country selected
 		c = Country.find_by_country(name)
-		
 		c.each do |c| 
-	puts  "Name of country: #{c.country}"
-	puts  "province or state: #{c.province}"
-	puts  "city: #{c.city}"
-	puts  "lastUpdated:		#{c.lastUpdated}"
-	puts  "Number of confirmed cases:  		#{c.confirmed}"
-	puts  "Number of dead people by covid 19: 			#{c.death}"
-	puts  "Number of recovered people: 		#{c.recovered}"
-	
+		puts  "Name of country:                    #{c.country}"
+		puts  "province or state:                  #{c.province}"
+		puts  "city:                               #{c.city}"
+		puts  "lastUpdated:                        #{c.lastUpdate}"
+		puts  "Number of confirmed cases:          #{c.confirmed}"
+		puts  "Number of dead people by covid 19:  #{c.deaths}"
+		puts  "Number of recovered people:         #{c.recovered}"
+		puts  " "
 		end
-		
 	end
 	def city_selection(name)
 			c = Country.find_by_city(name)
 			c.each do |c|
-				puts  "Name of country: #{c.country}"
-	puts  "province or state: #{c.province}"
-	puts  "city: #{c.city}"
-	puts  "lastUpdated:		#{c.lastUpdated}"
-	puts  "Number of confirmed cases:  		#{c.confirmed}"
-	puts  "Number of dead people by covid 19: 			#{c.death}"
-	puts  "Number of recovered people: 		#{c.recovered}"
+			puts  "Name of country:                    #{c.country}"
+			puts  "province or state:                  #{c.province}"
+			puts  "city:                               #{c.city}"
+			puts  "lastUpdated:	                    #{c.lastUpdate}"
+			puts  "Number of confirmed cases:          #{c.confirmed}"
+			puts  "Number of dead people by covid 19:  #{c.deaths}"
+			puts  "Number of recovered people: 	       #{c.recovered}"
+			puts  " "
 			end
 	end	
     def invalid_entry
@@ -90,6 +88,5 @@ class Covid19Cli::CLI
     end
     def goodbye(user)
     	slow_motion"Goodbye #{@user} Dont forget to wash your hands, and sanatize!"
-    	
     end
 end
