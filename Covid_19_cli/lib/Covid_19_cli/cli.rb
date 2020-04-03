@@ -62,31 +62,31 @@ class Covid19Cli::CLI
 	end
 	
  	def country_selection(name)
-		countries = Country.find_by_country(name)
-		countries.each do |country| 
-		puts  "Name of country:                    #{c.country}"
-		puts  "province or state:                  #{c.province}"
-		puts  "city:                               #{c.city}"
-		puts  "lastUpdated:                        #{c.lastUpdate}"
-		puts  "Number of confirmed cases:          #{c.confirmed}"
-		puts  "Number of dead people by covid 19:  #{c.deaths}"
-		puts  "Number of recovered people:         #{c.recovered}"
-		puts  " "
-		end
+	  countries = Country.find_by_country(name)
+	    countries.each do |country| 
+	      puts  "Name of country:                    #{c.country}"
+	      puts  "province or state:                  #{c.province}"
+	      puts  "city:                               #{c.city}"
+	      puts  "lastUpdated:                        #{c.lastUpdate}"
+	      puts  "Number of confirmed cases:          #{c.confirmed}"
+	      puts  "Number of dead people by covid 19:  #{c.deaths}"
+	      puts  "Number of recovered people:         #{c.recovered}"
+	      puts  " "
+	    end
 	end
 	
 	def city_selection(name)
-			countries = Country.find_by_city(name)
-			countries.each do |country|
-			puts  "Name of country:                    #{c.country}"
-			puts  "province or state:                  #{c.province}"
-			puts  "city:                               #{c.city}"
-			puts  "lastUpdated:	                    #{c.lastUpdate}"
-			puts  "Number of confirmed cases:          #{c.confirmed}"
-			puts  "Number of dead people by covid 19:  #{c.deaths}"
-			puts  "Number of recovered people: 	       #{c.recovered}"
-			puts  " "
-			end
+	   countries = Country.find_by_city(name)
+	    countries.each do |country|
+	      puts  "Name of country:                    #{c.country}"
+	      puts  "province or state:                  #{c.province}"
+	      puts  "city:                               #{c.city}"
+	      puts  "lastUpdated:	                    #{c.lastUpdate}"
+	      puts  "Number of confirmed cases:          #{c.confirmed}"
+	      puts  "Number of dead people by covid 19:  #{c.deaths}"
+	      puts  "Number of recovered people: 	       #{c.recovered}"
+	      puts  " "
+	    end
 	end	
 	
 	def state_selection(name)
