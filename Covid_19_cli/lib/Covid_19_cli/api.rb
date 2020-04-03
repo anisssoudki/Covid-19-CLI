@@ -2,6 +2,7 @@
 
 require "unirest"
 class Api 
+	
   def self.get_data 
 	response = Unirest.get "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats",
  	 headers:{
@@ -24,4 +25,5 @@ class Api
  	Country.new(hash).country
  	end
   end
+	
 end
