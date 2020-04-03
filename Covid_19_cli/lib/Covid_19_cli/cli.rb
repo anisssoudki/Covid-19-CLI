@@ -1,14 +1,17 @@
 
 class Covid19Cli::CLI
 	attr_accessor :user
+	
 	def user_name
 	  puts "Please enter your name"
 	  print"> "
 	  @user = gets.chomp.strip.upcase
 	end
+	
 	def slow_motion(string)
 	  string.each_char {|c| print c ; sleep 0.02 }
 	end
+	
 	def call
 	   user_name
 	   slow_motion("Welcome ")
@@ -21,43 +24,46 @@ class Covid19Cli::CLI
 	   Api.get_data
 	   menu
 	end
+	
 	def menu
 	   print "> "
 	   input = gets.strip.downcase
-	   if input == "list"
+	     if input == "list"
 		country_list 
-	   elsif input == "exit"
+	     elsif input == "exit"
 		goodbye(@user)
 		exit
-	   else
+	     else
 		 invalid_entry
 	   end
    	 end
+	
     def country_list
     		Country.all.each_with_index do |country, index|
-    		#calls out a list of all countries and provinces with their
-    		puts "#{index + 1}. country: #{country.country} province: #{country.province} city: #{country.city}"
+    		  puts "#{index + 1}. country: #{country.country} province: #{country.province} city: #{country.city}"
     		end
-    	user_pick 
+    	  user_pick 
     end
+	
     	def user_pick
-    			loop do 
-    	puts " "
-    	puts "Which country, state or city would you like details about: "
-    	input = gets.chomp.strip.capitalize
+    	  loop do 
+    	    puts " "
+    	    puts "Which country, state or city would you like details about: "
+    	    input = gets.chomp.strip.capitalize
     		if input == "Exit"
-    			break
+    		  break
     		elsif input == "List"
-    			country_list
+    		  country_list
     		else	
-    			country_selection(input) && city_selection(input) && state_selection(input)
-    			end
-			end
-			goodbye(@user)
-		end
+    		  country_selection(input) && city_selection(input) && state_selection(input)
+    		end
+          end
+	  goodbye(@user)
+	end
+	
  	def country_selection(name)
-		c = Country.find_by_country(name)
-		c.each do |c| 
+		countries = Country.find_by_country(name)
+		countries.each do |country| 
 		puts  "Name of country:                    #{c.country}"
 		puts  "province or state:                  #{c.province}"
 		puts  "city:                               #{c.city}"
@@ -68,9 +74,10 @@ class Covid19Cli::CLI
 		puts  " "
 		end
 	end
+	
 	def city_selection(name)
-			c = Country.find_by_city(name)
-			c.each do |c|
+			countries = Country.find_by_city(name)
+			countries.each do |country|
 			puts  "Name of country:                    #{c.country}"
 			puts  "province or state:                  #{c.province}"
 			puts  "city:                               #{c.city}"
@@ -81,24 +88,28 @@ class Covid19Cli::CLI
 			puts  " "
 			end
 	end	
+	
 	def state_selection(name)
-			c = Country.find_by_state(name)
-			c.each do |c|
-			puts  "Name of country:                    #{c.country}"
-			puts  "province or state:                  #{c.province}"
-			puts  "city:                               #{c.city}"
-			puts  "lastUpdated:	                    #{c.lastUpdate}"
-			puts  "Number of confirmed cases:          #{c.confirmed}"
-			puts  "Number of dead people by covid 19:  #{c.deaths}"
-			puts  "Number of recovered people: 	       #{c.recovered}"
-			puts  " "
-			end
+	  countries = Country.find_by_state(name)
+	    countries.each do |country|
+	      puts  "Name of country:                    #{c.country}"
+	      puts  "province or state:                  #{c.province}"
+	      puts  "city:                               #{c.city}"
+	      puts  "lastUpdated:	                    #{c.lastUpdate}"
+	      puts  "Number of confirmed cases:          #{c.confirmed}"
+	      puts  "Number of dead people by covid 19:  #{c.deaths}"
+	      puts  "Number of recovered people: 	       #{c.recovered}"
+	      puts  " "
+	    end
 	end	
+	
     def invalid_entry
-  		puts "Invalid entry, try again"
-		menu
+      puts "Invalid entry, try again"
+      menu
     end
+	
     def goodbye(user)
-    	slow_motion"Goodbye #{@user} Dont forget to wash your hands, and sanatize!"
+      slow_motion"Goodbye #{@user} Dont forget to wash your hands, and sanatize!"
     end
+	
 end
