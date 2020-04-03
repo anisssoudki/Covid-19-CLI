@@ -1,19 +1,32 @@
 # Covid-19-CLI
-data on confirmed infected people, death from the virus as well as the recovered, sorted by country/province
-Search by typing country name
+data on confirmed infected people, death from the virus as 
+well as the recovered, sorted by country/province, 
+after the greeting message
+user can type list in order to view the list of location names,
+Search by typing country, state/province or city name.
 
+prerequisites:
+unirest
 
-after cloning make sure you require "unirest"
+installing:
+gem install unirest, will install the unirest gem for the CLI to work
+run the executable file from the command line, the file is located 
+in the bin folder
 
+contributing
+you may clone/fork this application, and use it for whatever educational purpsose.
+
+Authors
+Aniss Soudki/Marrouch 
+
+license
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
 updated application with a new attribute, because the API was updated.
 
+acknowledgments
+all flatiron students in 02/10/20 cohort that helped me.
 
-update the application to include a find by city method so now user can enter in a city name 
-and it'll show case every hit from the API
 
-API got updated april 1st 2020, adjusted file keywords, gem should be working again update a method to sort by state.(4/01/2020)
-
-The MIT License (MIT)
 
 Copyright (c) 2020 TODO: Aniss Soudki/Marrouch
