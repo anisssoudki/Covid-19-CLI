@@ -110,6 +110,7 @@ class Covid19Cli::CLI
 	
     def goodbye(user)
       slow_motion"Goodbye #{@user} Dont forget to wash your hands, and sanatize!"
+      exit
     end
 	
 end
