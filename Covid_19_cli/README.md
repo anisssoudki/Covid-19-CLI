@@ -1,12 +1,9 @@
 # Covid19Cli
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/Covid_19_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+simple cli app that renders data about covid in countries or cities depending on user's input
 
 ## Installation
 
-Add this line to your application's Gemfile:
+
 
 ```ruby
 gem 'Covid_19_cli'
@@ -23,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+anyone
 
 ## Development
 
